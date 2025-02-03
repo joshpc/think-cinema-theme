@@ -41,8 +41,7 @@
 
     <script src="{{ 'gsap.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'ScrollTrigger.min.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'ScrollToPlugin.min.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'Flip.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'ScrollSmoother.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'scroll-sections.js' | asset_url }}" defer="defer"></script>
 
     {{ content_for_header }}
@@ -303,7 +302,7 @@
       }
 
       document.addEventListener('DOMContentLoaded', (event) => {
-        gsap.registerPlugin(Flip, ScrollTrigger, ScrollToPlugin);
+        gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
       });
     </script>
   </head>
@@ -319,11 +318,15 @@
 
     {% sections 'header-group' %}
 
-    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
-      {{ content_for_layout }}
-    </main>
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+          {{ content_for_layout }}
+        </main>
 
-    {% sections 'footer-group' %}
+        {% sections 'footer-group' %}
+      </div>
+    </div>
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>

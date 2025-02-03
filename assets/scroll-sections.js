@@ -5,6 +5,15 @@ class ScrollSections {
   }
 
   init() {
+    const smoother = ScrollSmoother.create({
+      smooth: 2,
+      speed: 2,
+      effects: true,
+      normalizeScroll: true,
+      smoothTouch: 0.1,
+      preventDefault: true,
+    });
+
     this.sections.forEach((section, i) => {
       ScrollTrigger.create({
         snap: 1 / (this.sections.length - 1),
