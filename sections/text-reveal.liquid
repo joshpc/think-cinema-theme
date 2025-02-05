@@ -20,22 +20,6 @@
       "label": "Animation Style",
       "options": [
         {
-          "value": "split",
-          "label": "Split Letters"
-        },
-        {
-          "value": "fade",
-          "label": "Fade Up"
-        },
-        {
-          "value": "slide",
-          "label": "Slide In"
-        },
-        {
-          "value": "lag",
-          "label": "Smooth Lag"
-        },
-        {
           "value": "words",
           "label": "Word by Word"
         },
@@ -44,7 +28,7 @@
           "label": "Zoom In"
         }
       ],
-      "default": "split"
+      "default": "zoom"
     },
     {
       "type": "color_scheme",
@@ -117,8 +101,6 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-
     document.querySelectorAll('.text-reveal').forEach(element => {
       const text = element.querySelector('.text-reveal__text');
       const heading = element.querySelector('.text-reveal__heading');
@@ -128,7 +110,7 @@
         scrollTrigger: {
           trigger: text.parentElement,
           start: 'clamp(top top)',
-          end: '+=300%',
+          end: '+=400%',
           pin: true,
           scrub: true
         }
@@ -138,13 +120,33 @@
         case 'zoom':
           text.classList.add('text-reveal__zoom');
           tl.to(text, {
-            duration: 1
+            duration: 0.75
           }).to(text, {
             scale: 1,
             opacity: 1,
-            duration: 2,
-            ease: 'elastic.out(1, 0.9)',
-          }).to(text, { duration: 1 });
+            duration: 1.5,
+            ease: 'ease.out(1, 0.9)',
+          }).to(text, {
+            duration: 0.5
+          }).to(text, {
+            scale: 100,
+            duration: 1.5,
+            ease: 'ease.in(1, 0.3)',
+            opacity: 0
+          });
+          break;
+        case 'words':
+          const words = element.querySelectorAll('.text-reveal__word');
+
+          tl.to(text, {
+            opacity: 1,
+            duration: 0.01
+          }).to(words, {
+            opacity: 1,
+            duration: 0.3,
+            stagger: 0.1,
+            ease: 'back.out'
+          });
           break;
       }
 
