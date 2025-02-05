@@ -12,16 +12,6 @@
       "type": "image_picker",
       "id": "image",
       "label": "t:settings_schema.logo.name"
-    },
-    {
-      "type": "range",
-      "id": "width",
-      "min": 50,
-      "max": 400,
-      "step": 10,
-      "unit": "px",
-      "label": "Logo Width",
-      "default": 200
     }
   ],
   "presets": [
@@ -34,13 +24,13 @@
 
 <div class="logo" {{ block.shopify_attributes }}>
   {% if block.settings.image != blank %}
-    {{ block.settings.image | image_url: width: block.settings.width | image_tag:
+    {{ block.settings.image | image_url: width: "100px" | image_tag:
       loading: 'lazy',
       alt: block.settings.title,
       class: 'logo__image'
     }}
   {% else %}
-    <div class="logo__placeholder" style="width: {{ block.settings.width }}px">
+    <div class="logo__placeholder" style="width: 100px">
       {{ block.settings.title }}
     </div>
   {% endif %}

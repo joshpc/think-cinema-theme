@@ -29,6 +29,35 @@
 }
 {% endschema %}
 
+{%- style -%}
+  .logo-track {
+    overflow: hidden;
+    width: 100%;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .logo-track-logos {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    will-change: transform;
+  }
+
+  @media screen and (min-width: 750px) {
+    .logo-track {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  .logo-wrapper {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+{%- endstyle -%}
+
 <div class="logo-track" data-direction="{{ block.settings.direction }}">
   <div class="logo-track-logos">
     {% for logo in block.blocks %}
@@ -38,27 +67,6 @@
     {% endfor %}
   </div>
 </div>
-
-<style>
-  .logo-track {
-    overflow: hidden;
-    width: 100%;
-  }
-
-  .logo-track-logos {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    padding: 2rem 0;
-    will-change: transform;
-  }
-
-  .logo-wrapper {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-  }
-</style>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {

@@ -9,55 +9,14 @@
  */
 {
   "sections": {
-    "scroll_container_ge94xP": {
-      "type": "scroll-container",
-      "blocks": {
-        "rich_text_hfnUdp": {
-          "type": "rich_text",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "rich_text_hfnUdp"
-      ],
-      "settings": {
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "scroll_container_N8raRm": {
-      "type": "scroll-container",
-      "blocks": {
-        "rich_text_bz93nF": {
-          "type": "rich_text",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "rich_text_bz93nF"
-      ],
-      "settings": {
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Image banner",
+            "heading": "Bringing the Cinematic Experience Home",
             "heading_size": "h0"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
           }
         },
         "button": {
@@ -74,20 +33,250 @@
       },
       "block_order": [
         "heading",
-        "text",
         "button"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
+        "image": "shopify://shop_images/Cinematic_Experience.jpg",
+        "image_overlay_opacity": 10,
         "image_height": "large",
-        "desktop_content_position": "bottom-center",
+        "desktop_content_position": "bottom-left",
         "show_text_box": false,
-        "desktop_content_alignment": "center",
+        "desktop_content_alignment": "left",
         "color_scheme": "scheme-3",
         "image_behavior": "none",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
+      }
+    },
+    "logo_scroll_group_kReekc": {
+      "type": "logo-scroll-group",
+      "blocks": {
+        "logo_scroll_track_aQCza4": {
+          "type": "logo-scroll-track",
+          "settings": {
+            "direction": "left"
+          },
+          "blocks": {
+            "logo_mwWaBg": {
+              "type": "logo",
+              "settings": {
+                "title": "Hisense",
+                "image": "shopify://shop_images/Bitmap.png",
+                "width": 200
+              }
+            },
+            "logo_ftjXzD": {
+              "type": "logo",
+              "settings": {
+                "title": "Honor",
+                "image": "shopify://shop_images/HONOR_LOGO_WHITE.png",
+                "width": 200
+              }
+            },
+            "logo_bAHGjN": {
+              "type": "logo",
+              "settings": {
+                "title": "Anthem",
+                "image": "shopify://shop_images/Bitmap_2.png",
+                "width": 200
+              }
+            },
+            "logo_wRQnYB": {
+              "type": "logo",
+              "settings": {
+                "title": "polk",
+                "image": "shopify://shop_images/polk.png",
+                "width": 200
+              }
+            },
+            "logo_XxAmM8": {
+              "type": "logo",
+              "settings": {
+                "title": "HONOR",
+                "image": "shopify://shop_images/honor.png",
+                "width": 200
+              }
+            },
+            "logo_gDepAc": {
+              "type": "logo",
+              "settings": {
+                "title": "AudioControl",
+                "width": 200
+              }
+            },
+            "logo_nnWjjJ": {
+              "type": "logo",
+              "settings": {
+                "title": "Bravia Core",
+                "width": 200
+              }
+            },
+            "logo_rVyRtf": {
+              "type": "logo",
+              "settings": {
+                "title": "iQIYI",
+                "width": 200
+              }
+            },
+            "logo_x4tbeM": {
+              "type": "logo",
+              "settings": {
+                "title": "Rakuten TV",
+                "width": 200
+              }
+            },
+            "logo_pRWMMb": {
+              "type": "logo",
+              "settings": {
+                "title": "DEFINITIVE TECHNOLOGY",
+                "width": 200
+              }
+            },
+            "logo_wCefV9": {
+              "type": "logo",
+              "settings": {
+                "title": "MARVEL STUDIOS",
+                "width": 200
+              }
+            },
+            "logo_3faJFp": {
+              "type": "logo",
+              "settings": {
+                "title": "Disney",
+                "width": 200
+              }
+            }
+          },
+          "block_order": [
+            "logo_mwWaBg",
+            "logo_ftjXzD",
+            "logo_bAHGjN",
+            "logo_wRQnYB",
+            "logo_XxAmM8",
+            "logo_gDepAc",
+            "logo_nnWjjJ",
+            "logo_rVyRtf",
+            "logo_x4tbeM",
+            "logo_pRWMMb",
+            "logo_wCefV9",
+            "logo_3faJFp"
+          ]
+        },
+        "logo_scroll_track_LVxxXX": {
+          "type": "logo-scroll-track",
+          "settings": {
+            "direction": "right"
+          },
+          "blocks": {
+            "logo_xmYUE6": {
+              "type": "logo",
+              "settings": {
+                "title": "JBL",
+                "width": 200
+              }
+            },
+            "logo_eR3fkT": {
+              "type": "logo",
+              "settings": {
+                "title": "Lexicon",
+                "width": 200
+              }
+            },
+            "logo_azTwwf": {
+              "type": "logo",
+              "settings": {
+                "title": "LG",
+                "width": 200
+              }
+            },
+            "logo_pPgAAp": {
+              "type": "logo",
+              "settings": {
+                "title": "McIntosh",
+                "width": 200
+              }
+            },
+            "logo_YPDQLM": {
+              "type": "logo",
+              "settings": {
+                "title": "Mi",
+                "width": 200
+              }
+            },
+            "logo_Tn8rzC": {
+              "type": "logo",
+              "settings": {
+                "title": "Onkyo",
+                "width": 200
+              }
+            },
+            "logo_aF3hgm": {
+              "type": "logo",
+              "settings": {
+                "title": "Paramount",
+                "width": 200
+              }
+            },
+            "logo_9ncmFX": {
+              "type": "logo",
+              "settings": {
+                "title": "Pioneer",
+                "width": 200
+              }
+            },
+            "logo_FNNCcz": {
+              "type": "logo",
+              "settings": {
+                "title": "SONY",
+                "width": 200
+              }
+            },
+            "logo_9neUdX": {
+              "type": "logo",
+              "settings": {
+                "title": "STORM|AUDIO",
+                "width": 200
+              }
+            },
+            "logo_QCTq4X": {
+              "type": "logo",
+              "settings": {
+                "title": "TCL",
+                "width": 200
+              }
+            },
+            "logo_fELRJR": {
+              "type": "logo",
+              "settings": {
+                "title": "ARCAM",
+                "width": 200
+              }
+            }
+          },
+          "block_order": [
+            "logo_xmYUE6",
+            "logo_eR3fkT",
+            "logo_azTwwf",
+            "logo_pPgAAp",
+            "logo_YPDQLM",
+            "logo_Tn8rzC",
+            "logo_aF3hgm",
+            "logo_9ncmFX",
+            "logo_FNNCcz",
+            "logo_9neUdX",
+            "logo_QCTq4X",
+            "logo_fELRJR"
+          ]
+        }
+      },
+      "block_order": [
+        "logo_scroll_track_aQCza4",
+        "logo_scroll_track_LVxxXX"
+      ],
+      "settings": {
+        "title": "Our Brand Partners",
+        "color_scheme": "scheme-4"
       }
     },
     "rich_text": {
@@ -256,9 +445,8 @@
     }
   },
   "order": [
-    "scroll_container_ge94xP",
-    "scroll_container_N8raRm",
     "image_banner",
+    "logo_scroll_group_kReekc",
     "rich_text",
     "featured_collection",
     "collage",

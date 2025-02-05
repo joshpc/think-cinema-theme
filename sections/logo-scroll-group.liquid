@@ -1,13 +1,61 @@
 {% schema %}
 {
-  "name": "Logo Scroll Group",
+  "name": "t:settings_schema.logos.group.label",
   "blocks": [{"type": "logo-scroll-track"}],
   "settings": [
     {
       "type": "text",
       "id": "title",
-      "label": "t:logos.heading",
+      "label": "t:settings_schema.logos.settings.heading.label",
       "default": "Scrolling Logos"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
     },
     {
       "type": "color_scheme",
@@ -18,7 +66,7 @@
   ],
   "presets": [
     {
-      "name": "Logo Scroll Group",
+      "name": "t:settings_schema.logos.group.label",
       "blocks": [
         { "type": "logo-scroll-track" },
         { "type": "logo-scroll-track" }
@@ -28,6 +76,28 @@
 }
 {% endschema %}
 
-<div class="logo-scroll color-{{ section.settings.color_scheme }}">
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .logo-scroll-header {
+    width: 100%;
+    text-align: center;
+  }
+{%- endstyle -%}
+
+<div class="logo-scroll color-{{ section.settings.color_scheme }} section-{{ section.id }}-padding">
+  <h2 class="{{ section.settings.heading_size }} logo-scroll-header" {{ section.shopify_attributes }}>
+    {{ section.settings.title }}
+  </h2>
   {% content_for 'blocks' %}
 </div>
