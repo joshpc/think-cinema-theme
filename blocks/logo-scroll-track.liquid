@@ -33,18 +33,16 @@
   .logo-track {
     position: relative;
     overflow: hidden;
-    width: 150%;
-    left: 0%;
+    width: 130vw;
+    left: -15vw;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-
-    background-color: blue;
   }
 
   .logo-track-logos {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 40px;
     will-change: transform;
   }
 
@@ -109,7 +107,6 @@
 
     gsap.set(items, { x: 0 });
 
-    debugger
     // Sum up the width of the entirety of the marquee
     totalWidth =
         items[length - 1].offsetLeft                        // the last item's offsetLeft
@@ -118,16 +115,14 @@
       + items[length - 1].offsetWidth * gsap.getProperty(items[length - 1], "scaleX") // plus the last item's width
       + (parseFloat(config.paddingRight) || 0);             // plus any paddingRight
 
+    totalWidth = Math.max(items[0].parentElement.offsetWidth, totalWidth);
+    console.log('totalWidth: ' + totalWidth)
     // For each item, set up the timeline
     for (i = 0; i < length; i++) {
       item = items[i];
       currentX = (xPercents[i] / 100) * widths[i];
       distanceToStart = item.offsetLeft + currentX - startX;
       distanceToLoop = distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
-
-      console.log(gsap.getProperty(item, "scaleX"))
-      console.log(distanceToStart)
-      console.log(distanceToLoop)
 
       //This sets up a timeline that moves the item from the start to the end of the marquee
       timeline.to(item, {
@@ -178,9 +173,9 @@
       const logos = track.querySelectorAll('.logo-wrapper');
       const direction = track.dataset.direction;
       const reversed = direction === 'left' ? true : false;
-      const distance = reversed ? '-25%' : '25%';
+      const distance = reversed ? '15vw' : '-15vw';
 
-      {% comment %} gsap.to(track, {
+      gsap.to(track, {
         x: distance,
         ease: 'none',
         scrollTrigger: {
@@ -189,12 +184,12 @@
           end: 'clamp(bottom top)',
           scrub: 1,
         }
-      }); {% endcomment %}
+      });
 
       horizontalLoop(logos, {
         repeat: -1,
         paddingRight: 40,
-        speed: 0.5,
+        speed: 0.75,
         reversed
       });
     });
