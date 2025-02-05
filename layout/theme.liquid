@@ -42,6 +42,18 @@
     <script src="{{ 'gsap.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'ScrollTrigger.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'ScrollSmoother.min.js' | asset_url }}" defer="defer"></script>
+    <script lang="text/javascript">
+      document.addEventListener('DOMContentLoaded', () => {
+        gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+        ScrollSmoother.create({
+          smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
+          effects: true, // looks for data-speed and data-lag attributes on elements
+          smoothTouch: 0.0, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
+        });
+      });
+    </script>
+
 
     {{ content_for_header }}
 

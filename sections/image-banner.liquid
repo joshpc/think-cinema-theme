@@ -120,6 +120,7 @@
             <h2
               class="banner__heading inline-richtext {{ block.settings.heading_size }}"
               {{ block.shopify_attributes }}
+              data-speed="clamp(2.0)"
             >
               {{ block.settings.heading }}
             </h2>
@@ -131,6 +132,7 @@
             <div
               class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
               {{ block.shopify_attributes }}
+              data-speed="clamp(2.1)"
             >
               {%- if block.settings.button_label_1 != blank -%}
                 <a
