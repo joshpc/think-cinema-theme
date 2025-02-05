@@ -62,89 +62,95 @@
               "type": "logo",
               "settings": {
                 "title": "Hisense",
-                "image": "shopify://shop_images/Bitmap.png",
-                "width": 200
+                "image": "shopify://shop_images/Bitmap.png"
               }
             },
             "logo_ftjXzD": {
               "type": "logo",
               "settings": {
                 "title": "Honor",
-                "image": "shopify://shop_images/HONOR_LOGO_WHITE.png",
-                "width": 200
+                "image": "shopify://shop_images/HONOR_LOGO_WHITE.png"
               }
             },
             "logo_bAHGjN": {
               "type": "logo",
               "settings": {
                 "title": "Anthem",
-                "image": "shopify://shop_images/Bitmap_2.png",
-                "width": 200
+                "image": "shopify://shop_images/Bitmap_2.png"
               }
             },
             "logo_wRQnYB": {
               "type": "logo",
               "settings": {
                 "title": "polk",
-                "image": "shopify://shop_images/polk.png",
-                "width": 200
+                "image": "shopify://shop_images/polk.png"
               }
             },
             "logo_XxAmM8": {
               "type": "logo",
               "settings": {
                 "title": "HONOR",
-                "image": "shopify://shop_images/honor.png",
-                "width": 200
+                "image": "shopify://shop_images/honor.png"
               }
             },
             "logo_gDepAc": {
               "type": "logo",
               "settings": {
-                "title": "AudioControl",
-                "width": 200
+                "title": "AudioControl"
               }
             },
             "logo_nnWjjJ": {
               "type": "logo",
               "settings": {
-                "title": "Bravia Core",
-                "width": 200
+                "title": "Bravia Core"
               }
             },
             "logo_rVyRtf": {
               "type": "logo",
               "settings": {
-                "title": "iQIYI",
-                "width": 200
+                "title": "iQIYI"
               }
             },
             "logo_x4tbeM": {
               "type": "logo",
               "settings": {
-                "title": "Rakuten TV",
-                "width": 200
+                "title": "Rakuten TV"
               }
             },
             "logo_pRWMMb": {
               "type": "logo",
               "settings": {
-                "title": "DEFINITIVE TECHNOLOGY",
-                "width": 200
+                "title": "DEFINITIVE TECHNOLOGY"
               }
             },
             "logo_wCefV9": {
               "type": "logo",
               "settings": {
-                "title": "MARVEL STUDIOS",
-                "width": 200
+                "title": "MARVEL STUDIOS"
               }
             },
             "logo_3faJFp": {
               "type": "logo",
               "settings": {
-                "title": "Disney",
-                "width": 200
+                "title": "Disney"
+              }
+            },
+            "logo_cEAkqp": {
+              "type": "logo",
+              "settings": {
+                "title": "Apple"
+              }
+            },
+            "logo_7bdrGj": {
+              "type": "logo",
+              "settings": {
+                "title": "Netflix"
+              }
+            },
+            "logo_gAiWCM": {
+              "type": "logo",
+              "settings": {
+                "title": "Sony Pictures"
               }
             }
           },
@@ -160,7 +166,10 @@
             "logo_x4tbeM",
             "logo_pRWMMb",
             "logo_wCefV9",
-            "logo_3faJFp"
+            "logo_3faJFp",
+            "logo_cEAkqp",
+            "logo_7bdrGj",
+            "logo_gAiWCM"
           ]
         },
         "logo_scroll_track_LVxxXX": {
@@ -172,85 +181,97 @@
             "logo_xmYUE6": {
               "type": "logo",
               "settings": {
-                "title": "JBL",
-                "width": 200
+                "title": "JBL"
               }
             },
             "logo_eR3fkT": {
               "type": "logo",
               "settings": {
-                "title": "Lexicon",
-                "width": 200
+                "title": "Lexicon"
               }
             },
             "logo_azTwwf": {
               "type": "logo",
               "settings": {
-                "title": "LG",
-                "width": 200
+                "title": "LG"
               }
             },
             "logo_pPgAAp": {
               "type": "logo",
               "settings": {
-                "title": "McIntosh",
-                "width": 200
+                "title": "McIntosh"
               }
             },
             "logo_YPDQLM": {
               "type": "logo",
               "settings": {
-                "title": "Mi",
-                "width": 200
+                "title": "Mi"
               }
             },
             "logo_Tn8rzC": {
               "type": "logo",
               "settings": {
-                "title": "Onkyo",
-                "width": 200
+                "title": "Onkyo"
               }
             },
             "logo_aF3hgm": {
               "type": "logo",
               "settings": {
-                "title": "Paramount",
-                "width": 200
+                "title": "Paramount"
               }
             },
             "logo_9ncmFX": {
               "type": "logo",
               "settings": {
-                "title": "Pioneer",
-                "width": 200
+                "title": "Pioneer"
               }
             },
             "logo_FNNCcz": {
               "type": "logo",
               "settings": {
-                "title": "SONY",
-                "width": 200
+                "title": "SONY"
               }
             },
             "logo_9neUdX": {
               "type": "logo",
               "settings": {
-                "title": "STORM|AUDIO",
-                "width": 200
+                "title": "STORM|AUDIO"
               }
             },
             "logo_QCTq4X": {
               "type": "logo",
               "settings": {
-                "title": "TCL",
-                "width": 200
+                "title": "TCL"
               }
             },
             "logo_fELRJR": {
               "type": "logo",
               "settings": {
-                "title": "ARCAM",
-                "width": 200
+                "title": "ARCAM"
+              }
+            },
+            "logo_yn4gVn": {
+              "type": "logo",
+              "settings": {
+                "title": "SI"
+              }
+            },
+            "logo_dRRU6h": {
+              "type": "logo",
+              "settings": {
+                "title": "Paradigm"
+              }
+            },
+            "logo_xPD8Gk": {
+              "type": "logo",
+              "settings": {
+                "title": "Stewart"
+              }
+            },
+            "logo_gaccKm": {
+              "type": "logo",
+              "settings": {
+                "title": "MadEnvy"
               }
             }
           },
@@ -266,7 +287,11 @@
             "logo_FNNCcz",
             "logo_9neUdX",
             "logo_QCTq4X",
-            "logo_fELRJR"
+            "logo_fELRJR",
+            "logo_yn4gVn",
+            "logo_dRRU6h",
+            "logo_xPD8Gk",
+            "logo_gaccKm"
           ]
         }
       },
@@ -276,6 +301,9 @@
       ],
       "settings": {
         "title": "Our Brand Partners",
+        "heading_size": "h1",
+        "padding_top": 40,
+        "padding_bottom": 52,
         "color_scheme": "scheme-4"
       }
     },
