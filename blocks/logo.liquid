@@ -1,0 +1,64 @@
+{% schema %}
+{
+  "name": "Logo",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Company Name"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:settings_schema.logo.name"
+    },
+    {
+      "type": "range",
+      "id": "width",
+      "min": 50,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo Width",
+      "default": 200
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="logo" {{ block.shopify_attributes }}>
+  {% if block.settings.image != blank %}
+    {{ block.settings.image | image_url: width: block.settings.width | image_tag:
+      loading: 'lazy',
+      alt: block.settings.title,
+      class: 'logo__image'
+    }}
+  {% else %}
+    <div class="logo__placeholder" style="width: {{ block.settings.width }}px">
+      {{ block.settings.title }}
+    </div>
+  {% endif %}
+</div>
+
+<style>
+.logo__image {
+  height: 6rem;
+  object-fit: contain;
+}
+
+.logo__placeholder {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4/1;
+
+  background-color: red;
+}
+</style>

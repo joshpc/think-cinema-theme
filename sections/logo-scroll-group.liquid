@@ -1,0 +1,33 @@
+{% schema %}
+{
+  "name": "Logo Scroll Group",
+  "blocks": [{"type": "logo-scroll-track"}],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:logos.heading",
+      "default": "Scrolling Logos"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo Scroll Group",
+      "blocks": [
+        { "type": "logo-scroll-track" },
+        { "type": "logo-scroll-track" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="logo-scroll color-{{ section.settings.color_scheme }}">
+  {% content_for 'blocks' %}
+</div>

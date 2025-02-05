@@ -71,6 +71,30 @@
         }
       }
     },
+    "logos": {
+      "group": {
+        "label": "Logo Scroll Group",
+      },
+      "track": {
+        "label": "Logo Scroll Track",
+      },
+      "settings": {
+        "heading": {
+          "label": "Heading Text",
+        },
+        "company_name": {
+          "label": "Company Name",
+        },
+        "logo": {
+          "label": "Logo",
+        },
+        "scroll_direction": {
+          "label": "Scroll Direction",
+          "ltr": "Left to Right",
+          "rtl": "Right to Left",
+        }
+      }
+    },
     "blog_cards": {
       "name": "Blog cards",
       "settings": {

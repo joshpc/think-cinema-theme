@@ -1,0 +1,85 @@
+{% schema %}
+{
+  "name": "t:settings_schema.logos.track.label",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "select",
+      "id": "direction",
+      "label": "t:settings_schema.logos.settings.scroll_direction.label",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:settings_schema.logos.settings.scroll_direction.rtl"
+        },
+        {
+          "value": "right",
+          "label": "t:settings_schema.logos.settings.scroll_direction.ltr"
+        }
+      ],
+      "default": "left"
+    },
+  ],
+  "blocks": [{ "type": "logo" }],
+  "presets": [
+    {
+      "name": "t:settings_schema.logos.track.label"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="logo-track" data-direction="{{ block.settings.direction }}">
+  <div class="logo-track-logos">
+    {% for logo in block.blocks %}
+      <div class="logo-wrapper">
+        {% render logo %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .logo-track {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .logo-track-logos {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    padding: 2rem 0;
+    will-change: transform;
+  }
+
+  .logo-wrapper {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var colors = ["#0ae448","#ff8709", "#9d95ff", "#00bae2"];
+
+    document.querySelectorAll('.logo-track').forEach(track => {
+      const logos = track.querySelectorAll('.logo-wrapper');
+      const direction = track.dataset.direction;
+      const distance = direction === 'left' ? '-250%' : '250%';
+
+      gsap.to(logos, {
+        x: distance,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: track,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+          toggleActions: 'play pause resume reverse'
+        }
+      });
+    });
+  });
+</script>
