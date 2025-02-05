@@ -31,10 +31,14 @@
 
 {%- style -%}
   .logo-track {
+    position: relative;
     overflow: hidden;
-    width: 100%;
+    width: 150%;
+    left: 0%;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+
+    background-color: blue;
   }
 
   .logo-track-logos {
@@ -69,24 +73,129 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var colors = ["#0ae448","#ff8709", "#9d95ff", "#00bae2"];
+  //The horizontal marquee was inspired by https://codepen.io/tutsplus/pen/LYomwGY
+  //Thank you to
+  function horizontalLoop(items, config) {
+    items = gsap.utils.toArray(items);
+    config = config || {};
 
+    let timelineParameters = {
+      repeat: config.repeat,
+      paused: config.paused,
+      defaults: { ease: "none" },
+      onReverseComplete: () => timeline.totalTime(timeline.rawTime() + timeline.duration() * 100)
+    };
+
+    let timeline = gsap.timeline(timelineParameters)
+    let length = items.length
+    let startX = items[0].offsetLeft
+    let times = []
+    let widths = []
+    let xPercents = []
+    let curIndex = 0
+    let pixelsPerSecond = (config.speed || 1) * 100
+    let snap = config.snap === false ? (v) => v : gsap.utils.snap(config.snap || 1) // some browsers shift by a pixel to accommodate flex layouts, so for example if width is 20% the first element's width might be 242px, and the next 243px, alternating back and forth. So we snap to 5 percentage points to make things look more natural
+
+    let totalWidth, currentX, distanceToStart, distanceToLoop, item, i
+
+    gsap.set(items, {
+      // convert "x" to "xPercent" to make things responsive, and populate the widths/xPercents Arrays to make lookups faster.
+      xPercent: (i, el) => {
+        widths[i] = parseFloat(gsap.getProperty(el, "width", "px"));
+        xPercents[i] = snap((parseFloat(gsap.getProperty(el, "x", "px")) / widths[i]) * 100 + gsap.getProperty(el, "xPercent"));
+        return xPercents[i];
+      }
+    });
+
+    gsap.set(items, { x: 0 });
+
+    debugger
+    // Sum up the width of the entirety of the marquee
+    totalWidth =
+        items[length - 1].offsetLeft                        // the last item's offsetLeft
+      + (xPercents[length - 1] / 100) * widths[length - 1]  // plus the percentage-based x value
+      - startX                                              // minus the first item's offsetLeft
+      + items[length - 1].offsetWidth * gsap.getProperty(items[length - 1], "scaleX") // plus the last item's width
+      + (parseFloat(config.paddingRight) || 0);             // plus any paddingRight
+
+    // For each item, set up the timeline
+    for (i = 0; i < length; i++) {
+      item = items[i];
+      currentX = (xPercents[i] / 100) * widths[i];
+      distanceToStart = item.offsetLeft + currentX - startX;
+      distanceToLoop = distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
+
+      console.log(gsap.getProperty(item, "scaleX"))
+      console.log(distanceToStart)
+      console.log(distanceToLoop)
+
+      //This sets up a timeline that moves the item from the start to the end of the marquee
+      timeline.to(item, {
+        xPercent: snap(((currentX - distanceToLoop) / widths[i]) * 100),
+        duration: distanceToLoop / pixelsPerSecond
+      }, 0).fromTo(item, {
+        xPercent: snap(((currentX - distanceToLoop + totalWidth) / widths[i]) * 100)
+      }, {
+        xPercent: xPercents[i],
+        duration: (currentX - distanceToLoop + totalWidth - currentX) / pixelsPerSecond,
+        immediateRender: false
+      }, distanceToLoop / pixelsPerSecond)
+      .add("label" + i, distanceToStart / pixelsPerSecond);
+
+      times[i] = distanceToStart / pixelsPerSecond;
+    }
+
+    function toIndex(index, vars) {
+      vars = vars || {};
+      Math.abs(index - curIndex) > length / 2 && (index += index > curIndex ? -length : length); // always go in the shortest direction
+      let newIndex = gsap.utils.wrap(0, length, index), time = times[newIndex];
+      if (time > timeline.time() !== index > curIndex) {
+        // if we're wrapping the timeline's playhead, make the proper adjustments
+        vars.modifiers = { time: gsap.utils.wrap(0, timeline.duration()) };
+        time += timeline.duration() * (index > curIndex ? 1 : -1);
+      }
+      curIndex = newIndex;
+      vars.overwrite = true;
+      return timeline.tweenTo(time, vars);
+    }
+
+    timeline.next = (vars) => toIndex(curIndex + 1, vars);
+    timeline.previous = (vars) => toIndex(curIndex - 1, vars);
+    timeline.current = () => curIndex;
+    timeline.toIndex = (index, vars) => toIndex(index, vars);
+    timeline.times = times;
+    timeline.progress(1, true).progress(0, true); // pre-render for performance
+    if (config.reversed) {
+      timeline.vars.onReverseComplete();
+      timeline.reverse();
+    }
+    return timeline;
+  }
+
+
+  document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.logo-track').forEach(track => {
       const logos = track.querySelectorAll('.logo-wrapper');
       const direction = track.dataset.direction;
-      const distance = direction === 'left' ? '-250%' : '250%';
+      const reversed = direction === 'left' ? true : false;
+      const distance = reversed ? '-25%' : '25%';
 
-      gsap.to(logos, {
+      {% comment %} gsap.to(track, {
         x: distance,
         ease: 'none',
         scrollTrigger: {
           trigger: track,
-          start: 'top bottom',
-          end: 'bottom top',
+          start: 'clamp(top bottom)',
+          end: 'clamp(bottom top)',
           scrub: 1,
-          toggleActions: 'play pause resume reverse'
         }
+      }); {% endcomment %}
+
+      horizontalLoop(logos, {
+        repeat: -1,
+        paddingRight: 40,
+        speed: 0.5,
+        reversed
       });
     });
   });
