@@ -59,6 +59,7 @@
 .text-reveal__heading {
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 2rem;
+  opacity: 0.25;
 }
 
 .text-reveal__text {
@@ -117,9 +118,20 @@
           start: 'clamp(top top)',
           end: '+=200%',
           pin: true,
-          scrub: true
+          scrub: true,
         }
       })
+
+      gsap.to(heading, {
+        opacity: 1,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: heading.parentElement,
+          start: 'clamp(top top)',
+          end: '+=50%',
+          scrub: true
+        }
+      });
 
       switch(animationType) {
         case 'zoom':

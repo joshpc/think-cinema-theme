@@ -3598,7 +3598,7 @@ details-disclosure > details {
 
 /* Scrolling */
 #smooth-content {
-  background-color: black;
+  background-color: #0A0A0A;
 }
 
 .scroll-container {
@@ -3612,5 +3612,5 @@ details-disclosure > details {
 
 .pin-spacer {
   /* TODO: Make this respect the theme, rather than straight to black */
-  background-color: black;
+  background-color: #0A0A0A;
 }
