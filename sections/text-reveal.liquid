@@ -120,18 +120,19 @@
         case 'zoom':
           text.classList.add('text-reveal__zoom');
           tl.to(text, {
-            duration: 0.75
+            duration: 0.1,
+            scale: 1000
           }).to(text, {
             scale: 1,
             opacity: 1,
             duration: 1.5,
             ease: 'ease.out(1, 0.9)',
           }).to(text, {
-            duration: 0.5
+            duration: 0.3
           }).to(text, {
-            scale: 100,
+            scale: 0.01,
             duration: 1.5,
-            ease: 'ease.in(1, 0.3)',
+            ease: 'ease.out(1, 0.3)',
             opacity: 0
           });
           break;
